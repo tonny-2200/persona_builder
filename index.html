@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit Persona Generator</title>
+    <style>
+        body {
+            background-color: #0b1f3a;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        h2, h3, h4 {
+            color: #a6d3ff;
+            margin-top: 1.5em;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #1e90ff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #559eff;
+        }
+
+        .persona-output {
+            background-color: #ffffff;
+            color: #111111;
+            padding: 24px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            line-height: 1.6;
+        }
+
+        .persona-output h3, 
+        .persona-output h4 {
+            color: #0b1f3a;
+            margin-top: 1.2em;
+        }
+
+        .persona-output ul, 
+        .persona-output ol {
+            margin-left: 1.5em;
+            padding-left: 0.5em;
+        }
+
+        .persona-output li {
+            margin-bottom: 0.6em;
+        }
+
+        .persona-output p {
+            margin-bottom: 1em;
+        }
+
+        .persona-output hr {
+            border: none;
+            height: 1px;
+            background-color: #ccc;
+            margin: 1.5em 0;
+        }
+
+        .persona-output strong {
+            font-weight: bold;
+            color: #222;
+        }
+
+        .persona-output em {
+            font-style: italic;
+        }
+
+        a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>🧠 Reddit User Persona Generator</h2>
+    <form method="post">
+        <label for="profile_url">Reddit Profile URL:</label>
+        <input type="text" id="profile_url" name="profile_url" placeholder="https://www.reddit.com/user/kojied/" required>
+        <button type="submit">Generate Persona</button>
+    </form>
+
+    {% if persona %}
+        <hr>
+        <h3>Generated Persona:</h3>
+        <div class="persona-output">
+            {{ persona|safe }}
+        </div>
+    {% endif %}
+</body>
+</html>
